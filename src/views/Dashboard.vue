@@ -76,7 +76,7 @@
         <div class="col mb-4">
           <div class="card p-2">
             Latest Expense
-            <div class="text-left" v-if="latestExpense !== [] || null || undefined">
+            <div class="text-left" v-if="latestExpense">
               <p>Amount: {{ latestExpense.amount }}</p>
               <p>Category: {{ latestExpense.category }}</p>
               <p>Description: {{ latestExpense.description }}</p>
@@ -270,7 +270,7 @@ export default {
           },
         })
         const data = await response.json()
-        this.latestExpense = data.result[0]
+        this.latestExpense = data.results[0]
       } catch (error) {
         if(this.getCookie('buddy_token') == null || undefined){
           this.authentError = true
