@@ -136,38 +136,38 @@
     },
 
     methods: {
-        verifySubmit: function(){
+        verifySubmit: function() {
           this.errors = [];
           this.submitting = true
           this.clearStatus()
 
-          if(this.validNameField(this.user.first_name)){
+          if (this.validNameField(this.user.first_name)) {
             this.errors.push('Please input a valid first name');
           }
-          if(this.validNameField(this.user.last_name)){
+          if (this.validNameField(this.user.last_name)) {
           // if(this.user.last_name === ""){
             this.errors.push('Please input a valid last name');
           }
-          if(this.validField(this.user.username)){
+          if (this.validField(this.user.username)) {
             this.errors.push('Please input a valid username');
           }
-          if(this.validField(this.email)){
+          if (this.validField(this.email)) {
             this.errors.push('Please input a valid email');
           }
-          if(this.validField(this.user.password)){
+          if (this.validField(this.user.password)) {
             this.errors.push('Please input a valid password');
           }
-          if(this.validField(this.user.confirm_password)){
+          if (this.validField(this.user.confirm_password)) {
             this.errors.push('Please input a valid password confirmation');
           }
-          if(this.user.confirm_password != this.user.password){
+          if (this.user.confirm_password != this.user.password) {
             this.errors.push('Please check and ensure the passwords match');
           }
-          if(this.user.password.length < 5){
+          if (this.user.password.length < 5) {
             this.errors.push('Password too short')
           }
-          else{
-            if(this.errors.length <= 0){
+          else {
+            if (this.errors.length <= 0) {
               this.userSignUp(this.user)
             }
           }
@@ -181,17 +181,17 @@
           this.errors = []
         },
 
-        validNameField: function(field){
+        validNameField: function(field) {
           var re = /^(\s+)|(\d+) $/;
           return re.test(field);
         },
-        validField: function(field){
+        validField: function(field) {
           var re = /^ (\s)+ $/;
           return re.test(field);
         },
         
 
-        async userSignUp(user){
+        async userSignUp(user) {
           this.submitLoading = true
           this.nError = false
           this.passwordVal = false
@@ -210,27 +210,27 @@
             const data = await response.json()
             
 
-            if(response.status == '201' || response.status == '200'){
+            if (response.status == '201' || response.status == '200') {
               this.success = true
               this.submitLoading = false
               this.successMessage = data.detail
               setTimeout(() => {return this.$router.push('/login')}, 10000);
             }
-            if(response.status != '201' || response.status != '200'){
+            if (response.status != '201' || response.status != '200') {
               this.submitLoading = false
-              if(data.username){this.errors.push(data.username)}
-              if(data.email){this.errors.push(data.email)}              
+              if(data.username) {this.errors.push(data.username)}
+              if(data.email) {this.errors.push(data.email)}              
               else{
                 this.errors.push(data)
                 // this.errors.push(["Something Definitely went wrong, we're sorry! Try again!"])
                 }
             }
 
-          } catch(error){
-            if(error){
+          } catch (error) {
+            if (error) {
               this.submitLoading = false
               console.log("An Error Occured, Please Try Again", error)
-              if(error=="TypeError: Failed to fetch" || error=="TypeError: NetworkError when attempting to fetch resource."){
+              if(error=="TypeError: Failed to fetch" || error=="TypeError: NetworkError when attempting to fetch resource.") {
                 this.nError = true
               }
             }

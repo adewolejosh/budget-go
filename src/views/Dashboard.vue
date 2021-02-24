@@ -147,11 +147,11 @@ export default {
         const data = await response.json()
         this.user = data
       } catch (error) {
-        if(this.getCookie('buddy_token') == null || this.getCookie('buddy_token') == undefined){
+        if (this.getCookie('buddy_token') == null || this.getCookie('buddy_token') == undefined) {
           this.authentError = true
           this.networkError = false
         }
-        if(error=="TypeError: Failed to fetch"){
+        if (error=="TypeError: Failed to fetch") {
           this.networkError = true
           this.authentError = false
         }
@@ -173,11 +173,11 @@ export default {
         const data = await response.json()
         this.budget = data
       } catch (error) {
-        if(this.getCookie('buddy_token') == null || undefined){
+        if (this.getCookie('buddy_token') == null || undefined) {
           this.authentError = true
           this.networkError = false
         }
-        if(error=="TypeError: Failed to fetch"){
+        if (error=="TypeError: Failed to fetch") {
           this.networkError = true
           this.authentError = false
         }
@@ -199,11 +199,11 @@ export default {
         const data = await response.json()
         this.income = data
       } catch (error) {
-        if(this.getCookie('buddy_token') == null || undefined){
+        if (this.getCookie('buddy_token') == null || undefined) {
           this.authentError = true
           this.networkError = false
         }
-        if(error=="TypeError: Failed to fetch"){
+        if (error=="TypeError: Failed to fetch") {
           this.networkError = true
           this.authentError = false
         }
@@ -225,11 +225,11 @@ export default {
         const data = await response.json()
         this.expense = data
       } catch (error) {
-        if(this.getCookie('buddy_token') == null || undefined){
+        if (this.getCookie('buddy_token') == null || undefined) {
           this.authentError = true
           this.networkError = false
         }
-        if(error=="TypeError: Failed to fetch"){
+        if (error=="TypeError: Failed to fetch") {
           this.networkError = true
           this.authentError = false
         }
@@ -249,11 +249,11 @@ export default {
         // this.incomes = data
         this.latestIncome = data.results[0]
       } catch (error) {
-        if(this.getCookie('buddy_token') == null || undefined){
+        if (this.getCookie('buddy_token') == null || undefined) {
           this.authentError = true
           this.networkError = false
         }
-        if(error=="TypeError: Failed to fetch"){
+        if (error=="TypeError: Failed to fetch") {
           this.networkError = true
           this.authentError = false
         }
@@ -272,11 +272,11 @@ export default {
         const data = await response.json()
         this.latestExpense = data.results[0]
       } catch (error) {
-        if(this.getCookie('buddy_token') == null || undefined){
+        if (this.getCookie('buddy_token') == null || undefined) {
           this.authentError = true
           this.networkError = false
         }
-        if(error == "TypeError: Failed to fetch" || error === "TypeError: NetworkError when attempting to fetch resource."){
+        if (error == "TypeError: Failed to fetch" || error === "TypeError: NetworkError when attempting to fetch resource.") {
           this.networkError = true
           this.authentError = false
         }

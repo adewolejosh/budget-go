@@ -84,11 +84,11 @@
           this.incomes = data.results
           this.latestIncome = data.results[0]
         } catch (error) {
-          if(this.getCookie('buddy_token') == null || undefined){
+          if (this.getCookie('buddy_token') == null || undefined) {
             this.authentError = true
             this.networkError = false
           }
-          else{
+          else {
             this.networkError = true
             this.authentError = false
           }
